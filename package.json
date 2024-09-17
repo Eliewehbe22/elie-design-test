@@ -1,5 +1,5 @@
 {
-  "name": "elie-design-test",
+  "name": "@Eliewehbe22/elie-design-test",
   "version": "1.2.0",
   "main": "./dist/index.js",
   "style": "./dist/main.css",
