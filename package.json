@@ -1,10 +1,10 @@
 {
   "name": "elie-design-test",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "./dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/your-repo-name.git"
+    "url": "https://github.com/Eliewehbe22/elie-design-test"
   },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
