@@ -1,6 +1,6 @@
 {
   "name": "elie-design-test",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "./dist/index.js",
   "style": "./dist/main.css",
   "repository": {
@@ -15,6 +15,9 @@
   ],
   "scripts": {
     "build": "webpack --config webpack.config.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "keywords": [
     "PackageWithCss"
