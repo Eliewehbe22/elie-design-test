@@ -1,3 +1,8 @@
 import './component/Test.module.css'
+import './component/ImageDropShaddow.module.css';
+
+import ImageDropShaddow from "./component/Image";
 import Test from './component/TestComp'
-export default Test
+
+// Named exports for both components
+export { ImageDropShaddow, Test };
