@@ -1,80 +1,60 @@
+// webpack.config.js
 const path = require('path');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
     entry: './src/index.ts',
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'dist'),
         library: 'webpack-test-elie',
-        clean: true,
         libraryTarget: 'umd',
         globalObject: 'this',
+        clean: true,
     },
     module: {
         rules: [
             {
                 test: /\.(ts|tsx)?$/,
-                use: [
-                    'babel-loader',
-                    'ts-loader',
-                    'css-modules-typescript-loader'
-                ],
+                use: ['babel-loader', 'ts-loader'],
                 exclude: /node_modules/,
             },
             {
                 test: /\.module\.css$/i,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-modules-typescript-loader',
+                    'style-loader',  // Add this to inject CSS into the HTML
                     {
                         loader: 'css-loader',
                         options: {
-                            modules: true,
-                            importLoaders: 1,
+                            modules: true, // Enable CSS modules
                         },
-
-                    }
+                    },
                 ],
             },
             {
                 test: /\.css$/i,
                 exclude: /\.module\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'style-loader',
+                    'style-loader', // Add this to inject CSS into the HTML
                     'css-loader',
-                    'css-loader?modules',
-
                 ],
             },
-
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js',".css"],
+        extensions: ['.tsx', '.ts', '.js', '.css'],
     },
-    mode: 'production',
-    externals: [
-        {
-            react: 'react',
-            'react-dom': 'react-dom',}
-    ],
-    target:"web",
-    stats: { errorDetails: true },
+    externals: {
+        react: 'react',
+        'react-dom': 'react-dom',
+    },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '[name].css',
+            filename: 'main.css',
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: 'src/component/*.css', to: '[name][ext]' },
-            ],
-        }),
-        new CssMinimizerPlugin(),
         new CleanWebpackPlugin(),
     ],
     optimization: {
@@ -84,4 +64,5 @@ module.exports = {
             new CssMinimizerPlugin(),
         ],
     },
+    mode: 'production',
 };
