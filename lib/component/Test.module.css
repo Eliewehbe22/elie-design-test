@@ -1,0 +1,46 @@
+.subContainer {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.input {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #85eac7;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #02271d;
+}
+
+.buttonClicked {
+    background-color: #0ba979;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+}
