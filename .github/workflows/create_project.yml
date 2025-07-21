@@ -1,0 +1,36 @@
+name: Create and Run Project
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_name:
+        description: 'Name of the project to create'
+        required: true
+        default: 'my-project'
+      environment:
+        description: 'Environment to deploy to'
+        required: false
+        default: 'dev'
+
+jobs:
+  create-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Display inputs
+        run: |
+          echo "Creating project: ${{ github.event.inputs.project_name }}"
+          echo "For environment: ${{ github.event.inputs.environment }}"
+          
+      # Add your actual project creation and run commands here
+      - name: Create project
+        run: |
+          # Your project creation commands
+          echo "Project created!"
+          
+      - name: Run project
+        run: |
+          # Your project run commands
+          echo "Project running!"
